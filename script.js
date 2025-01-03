@@ -1,26 +1,36 @@
-const form = document.getElementById('weather-form');
-const resultDiv = document.getElementById('weather-result');
+const apiKey = 'df49e0f8c8d6f4cd523d2ce215e431eb'; // Make sure to keep this secure
+const getWeatherButton = document.getElementById('get-weather');
 
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-
-  const city = document.getElementById('city').value;
-  const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeather API key
-  const apiUrl = https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric;
-
-  try {
-    const response = await fetch(apiUrl);
-    if (!response.ok) throw new Error('City not found');
-
-    const data = await response.json();
-    const { name, main, weather } = data;
-
-    resultDiv.innerHTML = `
-      <h2>${name}</h2>
-      <p>Temperature: ${main.temp}°C</p>
-      <p>Condition: ${weather[0].description}</p>
-    `;
-  } catch (error) {
-    resultDiv.innerHTML = <p style="color: red;">Error: ${error.message}</p>;
-  }
+getWeatherButton.addEventListener('click', () => {
+    const city = document.getElementById('city-input').value;
+    if (city) {
+        fetchWeather(city);
+    } else {
+        alert("Please enter a city name.");
+    }
 });
+
+function fetchWeather(city) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('City not found');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const cityName = data.name;
+            const temp = data.main.temp;
+            const weatherDescription = data.weather[0].description;
+
+            document.getElementById('city-name').innerText = cityName;
+            document.getElementById('temperature').innerText = `Temperature: ${temp} °C`;
+            document.getElementById('description').innerText = `Description: ${weatherDescription}`;
+        })
+        .catch(error => {
+            alert(error.message);
+        });
+}
+
