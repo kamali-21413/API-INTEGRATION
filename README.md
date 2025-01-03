@@ -58,3 +58,9 @@ Comprehensive documentation will accompany the deliverable. This includes setup 
 The resulting webpage will integrate responsive design principles with dynamic data handling to create an interactive, high-performance user experience. Users will benefit from a visually appealing interface, real-time data updates, and advanced usability features.
 
 This deliverable demonstrates the ability to combine frontend development skills with API integration, focusing on user experience, reliability, and performance optimization. It reflects modern web development standards and is suitable for diverse use cases in real-world applications.
+
+
+# OUTPUT OF THE TASK
+
+![output](https://github.com/user-attachments/assets/38d07a8d-66e6-4f63-875b-951b0ee80ada)
+
