@@ -12,6 +12,8 @@
 
 **MENTOR NAME** : NEELA SANTHOSH KUMAR
 
+**DESCRIPTION**
+
 The deliverable is a responsive webpage designed to fetch, process, and display data dynamically from an external API. The goal is to ensure the webpage offers a seamless user experience across multiple devices while efficiently managing the integration and presentation of API data. Below is a detailed explanation:
 
 1. Responsive Design
